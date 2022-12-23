@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFApp"
+        xmlns:wpfApp="clr-namespace:WPFApp;assembly=ViewModels"
+        xmlns:viewsWpf="clr-namespace:ViewsWpf;assembly=ViewsWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        d:DataContext="{d:DesignInstance wpfApp:IMainWindowViewModel}">
     <Grid>
-
+        <viewsWpf:NextKungFuFormView x:Name="TheNextKungFuFormView" />
     </Grid>
 </Window>

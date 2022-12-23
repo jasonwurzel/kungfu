@@ -13,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFApp
+namespace ViewsWpf
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NextKungFuFormView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NextKungFuFormView : UserControl
     {
-        public MainWindow()
+        public NextKungFuFormView()
         {
             InitializeComponent();
-
-            TheNextKungFuFormView.DataContext = new NextKungFuFormViewModel();
         }
     }
 }
