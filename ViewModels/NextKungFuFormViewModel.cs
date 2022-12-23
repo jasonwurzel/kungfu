@@ -1,3 +1,5 @@
+using System.Reactive;
+using System.Reactive.Linq;
 using ReactiveUI;
 
 namespace ViewModels;
@@ -8,7 +10,8 @@ public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
 
     public NextKungFuFormViewModel()
     {
-        GetNextForm = ReactiveCommand.Create(() => NextFormText = Guid.NewGuid().ToString("N"));
+        GetNextForm = ReactiveCommand.Create<Unit, string>(_ => Guid.NewGuid().ToString("N"));
+        GetNextForm.Do(nextFormText => NextFormText = nextFormText).Subscribe();
     }
 
     public string NextFormText
@@ -17,5 +20,5 @@ public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
         private set => this.RaiseAndSetIfChanged(ref _nextFormText, value);
     }
 
-    public IReactiveCommand GetNextForm { get; }
+    public ReactiveCommand<Unit, string> GetNextForm { get; }
 }
