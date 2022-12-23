@@ -1,7 +1,6 @@
 using ReactiveUI;
-using ViewModels;
 
-namespace WPFApp;
+namespace ViewModels;
 
 public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
 {

@@ -1,4 +1,5 @@
-﻿using WPFApp;
+﻿using ViewModels;
+using WPFApp;
 using Xunit;
 
 namespace UnitTests

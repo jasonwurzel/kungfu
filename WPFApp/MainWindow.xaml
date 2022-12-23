@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:WPFApp"
         xmlns:wpfApp="clr-namespace:WPFApp;assembly=ViewModels"
         xmlns:viewsWpf="clr-namespace:ViewsWpf;assembly=ViewsWpf"
+        xmlns:viewModels="clr-namespace:ViewModels;assembly=ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        d:DataContext="{d:DesignInstance wpfApp:IMainWindowViewModel}">
+        d:DataContext="{d:DesignInstance viewModels:IMainWindowViewModel}">
     <Grid>
         <viewsWpf:NextKungFuFormView x:Name="TheNextKungFuFormView" />
     </Grid>

@@ -1,4 +1,4 @@
-namespace WPFApp;
+namespace ViewModels;
 
 public interface IMainWindowViewModel
 {

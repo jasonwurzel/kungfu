@@ -1,6 +1,6 @@
 using ReactiveUI;
 
-namespace WPFApp;
+namespace ViewModels;
 
 public class MainWindowViewModel : ReactiveObject, IMainWindowViewModel
 {
