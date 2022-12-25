@@ -1,11 +1,12 @@
 using System.Reactive;
+using Models;
 using ReactiveUI;
 
-namespace ViewModels;
+namespace Interfaces;
 
 public interface INextKungFuFormViewModel
 {
-    string NextFormText { get; }
+    KungFuForm NextForm { get; }
 
     public ReactiveCommand<Unit, string> GetNextForm { get; }
 }

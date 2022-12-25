@@ -16,7 +16,7 @@ namespace UnitTests
 
             // Act && Assert
             sut.GetNextForm.Execute(Unit.Default).Subscribe();
-            var text1 = sut.NextFormText;
+            var text1 = sut.NextForm.Text;
             sut.GetNextForm.Execute(Unit.Default).Subscribe();
             var text2 = sut.NextFormText;
             text1.Should().NotBe(text2);

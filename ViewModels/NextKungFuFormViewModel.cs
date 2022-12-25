@@ -1,24 +1,31 @@
 using System.Reactive;
 using System.Reactive.Linq;
+using Interfaces;
+using Models;
 using ReactiveUI;
 
 namespace ViewModels;
 
 public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
 {
-    private string _nextFormText = String.Empty;
+    private KungFuForm _nextForm = KungFuForm.Empty;
 
-    public NextKungFuFormViewModel()
+    public NextKungFuFormViewModel(IKungfuRandomizer randomizer)
     {
         GetNextForm = ReactiveCommand.Create<Unit, string>(_ => Guid.NewGuid().ToString("N"));
-        GetNextForm.Do(nextFormText => NextFormText = nextFormText).Subscribe();
+        GetNextForm.Do(nextFormText => NextForm = randomizer.NextRandomForm()).Subscribe();
     }
 
-    public string NextFormText
+    public KungFuForm NextForm
     {
-        get => _nextFormText;
-        private set => this.RaiseAndSetIfChanged(ref _nextFormText, value);
+        get => _nextForm;
+        private set => this.RaiseAndSetIfChanged(ref _nextForm, value);
     }
 
     public ReactiveCommand<Unit, string> GetNextForm { get; }
+}
+
+public interface IKungfuRandomizer
+{
+    KungFuForm NextRandomForm();
 }

@@ -1,4 +1,4 @@
-namespace ViewModels;
+namespace Interfaces;
 
 public interface IMainWindowViewModel
 {
