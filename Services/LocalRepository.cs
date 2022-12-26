@@ -6,8 +6,15 @@ namespace Services;
 
 public class LocalRepository : IRepository
 {
-    private readonly string _basePath = String.Empty;
-    private readonly string _kungFuCsvFileName = "forms.csv";
+    private readonly string _basePath;
+    private readonly string _kungFuCsvFileName;
+
+    public LocalRepository(string fileNameKungFuForms = "forms.csv", string basePath = "")
+    {
+        _kungFuCsvFileName = fileNameKungFuForms;
+        _basePath = basePath;
+    }
+
     public IEnumerable<KungFuForm> GetKungFuForms()
     {
         var engine = new FileHelperEngine<KungFuFormCsv>();
@@ -15,6 +22,7 @@ public class LocalRepository : IRepository
         return kungFuFormsCsv.Select(csv => new KungFuForm(csv.Name));
     }
 
+    [DelimitedRecord(";")]
     public class KungFuFormCsv
     {
         public string Name { get; set; } = String.Empty;

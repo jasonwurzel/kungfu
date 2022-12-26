@@ -24,8 +24,3 @@ public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
 
     public ReactiveCommand<Unit, string> GetNextForm { get; }
 }
-
-public interface IKungfuRandomizer
-{
-    KungFuForm NextRandomForm();
-}

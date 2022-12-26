@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Services;
 using ViewModels;
 
 namespace WPFApp
@@ -25,7 +26,9 @@ namespace WPFApp
         {
             InitializeComponent();
 
-            TheNextKungFuFormView.DataContext = new NextKungFuFormViewModel();
+            TheNextKungFuFormView.DataContext = new NextKungFuFormViewModel(
+                new KungfuRandomizer(
+                    new LocalRepository().GetKungFuForms().ToArray()));
         }
     }
 }
