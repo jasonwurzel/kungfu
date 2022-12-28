@@ -1,18 +1,19 @@
-﻿<Window x:Class="WPFApp.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPFApp"
-        xmlns:wpfApp="clr-namespace:WPFApp;assembly=ViewModels"
-        xmlns:viewsWpf="clr-namespace:ViewsWpf;assembly=ViewsWpf"
-        xmlns:viewModels="clr-namespace:ViewModels;assembly=ViewModels"
-        xmlns:viewModels1="clr-namespace:ViewModels;assembly=Interfaces"
-        xmlns:interfaces="clr-namespace:Interfaces;assembly=Interfaces"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        d:DataContext="{d:DesignInstance interfaces:IMainWindowViewModel}">
+﻿<reactiveUi:ReactiveWindow x:TypeArguments="interfaces:IMainWindowViewModel" x:Class="WPFApp.MainWindow"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           xmlns:local="clr-namespace:WPFApp"
+                           xmlns:wpfApp="clr-namespace:WPFApp;assembly=ViewModels"
+                           xmlns:viewsWpf="clr-namespace:ViewsWpf;assembly=ViewsWpf"
+                           xmlns:viewModels="clr-namespace:ViewModels;assembly=ViewModels"
+                           xmlns:viewModels1="clr-namespace:ViewModels;assembly=Interfaces"
+                           xmlns:interfaces="clr-namespace:Interfaces;assembly=Interfaces"
+                           xmlns:reactiveUi="http://reactiveui.net"
+                           mc:Ignorable="d"
+                           Title="MainWindow" Height="450" Width="800"
+                           d:DataContext="{d:DesignInstance interfaces:IMainWindowViewModel}">
     <Grid>
-        <viewsWpf:NextKungFuFormView x:Name="TheNextKungFuFormView" />
+        <viewsWpf:NextKungFuFormView x:Name="TheNextKungFuFormView" ViewModel="{Binding NextKungFuFormViewModel }" />
     </Grid>
-</Window>
+</reactiveUi:ReactiveWindow>

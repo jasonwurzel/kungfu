@@ -11,11 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModels", "ViewModels\Vi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewsWpf", "ViewsWpf\ViewsWpf.csproj", "{0318F58A-0258-45FE-B8E0-77D3AD92E16B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{34468BBE-7ABB-4A9E-A1AB-440F19A6A1F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{34468BBE-7ABB-4A9E-A1AB-440F19A6A1F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{98962DD5-68F0-4296-B700-149A07D7BC46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\Interfaces.csproj", "{98962DD5-68F0-4296-B700-149A07D7BC46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{F2036E9B-0CBB-4D82-BFBD-F4EB3CD5E6F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{F2036E9B-0CBB-4D82-BFBD-F4EB3CD5E6F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppInitWpf", "AppInitWpf\AppInitWpf.csproj", "{16162522-1E8E-4C62-BDB2-DAC88F04B07D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{F2036E9B-0CBB-4D82-BFBD-F4EB3CD5E6F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2036E9B-0CBB-4D82-BFBD-F4EB3CD5E6F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2036E9B-0CBB-4D82-BFBD-F4EB3CD5E6F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16162522-1E8E-4C62-BDB2-DAC88F04B07D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16162522-1E8E-4C62-BDB2-DAC88F04B07D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16162522-1E8E-4C62-BDB2-DAC88F04B07D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16162522-1E8E-4C62-BDB2-DAC88F04B07D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

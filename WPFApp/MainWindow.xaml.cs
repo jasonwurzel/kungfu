@@ -1,34 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Services;
-using ViewModels;
+﻿using AppInitWpf;
 
 namespace WPFApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public MainWindow()
         {
             InitializeComponent();
 
-            TheNextKungFuFormView.DataContext = new NextKungFuFormViewModel(
-                new KungfuRandomizer(
-                    new LocalRepository().GetKungFuForms().ToArray()));
+            // for brevity, just call the DI init here
+            ViewModel = CompositionRoot.Create();
         }
     }
 }
