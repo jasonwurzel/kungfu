@@ -15,7 +15,7 @@ public class KungfuRandomizer : IKungfuRandomizer
     }
     public KungFuForm NextRandomForm()
     {
-        var randomIndex = _random.Next(0, _kungFuForms.Count - 1);
+        var randomIndex = _random.Next(0, _kungFuForms.Count);
         var randomForm = _kungFuForms.ElementAt(randomIndex);
         return randomForm;
     }
