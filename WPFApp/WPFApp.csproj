@@ -18,4 +18,10 @@
     <ProjectReference Include="..\ViewsWpf\ViewsWpf.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="forms.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
