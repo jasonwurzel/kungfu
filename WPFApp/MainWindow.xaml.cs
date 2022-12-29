@@ -1,10 +1,8 @@
 ﻿using AppInitWpf;
+using ViewModels;
 
 namespace WPFApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow
     {
         public MainWindow()
@@ -13,6 +11,8 @@ namespace WPFApp
 
             // for brevity, just call the DI init here
             ViewModel = CompositionRoot.Create();
+            DataContext = ViewModel;
+            TheNextKungFuFormView.ViewModel = ViewModel.NextKungFuFormViewModel as NextKungFuFormViewModel;
         }
     }
 }

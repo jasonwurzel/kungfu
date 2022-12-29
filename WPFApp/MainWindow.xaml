@@ -14,6 +14,6 @@
                            Title="MainWindow" Height="450" Width="800"
                            d:DataContext="{d:DesignInstance interfaces:IMainWindowViewModel}">
     <Grid>
-        <viewsWpf:NextKungFuFormView x:Name="TheNextKungFuFormView" ViewModel="{Binding NextKungFuFormViewModel }" />
+        <viewsWpf:NextKungFuFormView x:Name="TheNextKungFuFormView" />
     </Grid>
 </reactiveUi:ReactiveWindow>
