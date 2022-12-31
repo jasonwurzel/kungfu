@@ -10,9 +10,15 @@
                            xmlns:viewModels1="clr-namespace:ViewModels;assembly=Interfaces"
                            xmlns:interfaces="clr-namespace:Interfaces;assembly=Interfaces"
                            xmlns:reactiveUi="http://reactiveui.net"
+                           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                            mc:Ignorable="d"
                            Title="MainWindow" Height="450" Width="800"
-                           d:DataContext="{d:DesignInstance interfaces:IMainWindowViewModel}">
+                           d:DataContext="{d:DesignInstance interfaces:IMainWindowViewModel}"
+                           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                           TextElement.FontWeight="Medium"
+                           TextElement.FontSize="14"
+                           FontFamily="{materialDesign:MaterialDesignFont}"
+                           Background="{DynamicResource MaterialDesignPaper}">
     <Grid>
         <viewsWpf:NextKungFuFormView x:Name="TheNextKungFuFormView" />
     </Grid>

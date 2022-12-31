@@ -17,7 +17,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Next Form"/>
+        <TextBlock Text="Next Form" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <materialDesign:Card Grid.Row="1" Padding="32" Margin="8">
             <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}" Text="{Binding NextForm.Name}" 
                        HorizontalAlignment="Center" 
