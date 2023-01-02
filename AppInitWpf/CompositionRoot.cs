@@ -15,7 +15,7 @@ namespace AppInitWpf
         {
             // Singletons
             var localRepository = new LocalRepository();
-            var kungfuRandomizer = new KungfuRandomizer(localRepository.GetKungFuForms().ToArray());
+            var kungfuRandomizer = new KungFuRandomizer(localRepository.GetKungFuForms().ToArray());
 
             IMainWindowViewModel root = new MainWindowViewModel(new NextKungFuFormViewModel(kungfuRandomizer));
 

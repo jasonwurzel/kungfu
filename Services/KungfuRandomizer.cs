@@ -1,16 +1,15 @@
 using Interfaces;
 using Models;
-using System.Linq.Expressions;
 
 namespace Services;
 
-public class KungfuRandomizer : IKungfuRandomizer
+public class KungFuRandomizer : IKungfuRandomizer
 {
     private readonly Random _random;
     private readonly IReadOnlyCollection<KungFuForm> _kungFuForms;
     private readonly List<int> _usedIndices = new();
 
-    public KungfuRandomizer(IReadOnlyCollection<KungFuForm> kungFuForms)
+    public KungFuRandomizer(IReadOnlyCollection<KungFuForm> kungFuForms)
     {
         _kungFuForms = kungFuForms;
         _random = new Random();

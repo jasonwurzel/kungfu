@@ -19,7 +19,7 @@ public class KungfuRandomizerTests
             new("Ng Lun Ma"),
             new("Fu Mei Daan Dou")
         };
-        var sut = new KungfuRandomizer(originalForms);
+        var sut = new KungFuRandomizer(originalForms);
 
         // Act
         var uniqueRandomForms = Enumerable.Range(0, 5).Select(_ => sut.NextRandomForm()).ToArray();
@@ -40,7 +40,7 @@ public class KungfuRandomizerTests
             new("Ng Lun Ma"),
             new("Fu Mei Daan Dou")
         };
-        var sut = new KungfuRandomizer(originalForms);
+        var sut = new KungFuRandomizer(originalForms);
 
         // Act
         var randomForms = Enumerable.Range(0, 10).Select(_ => sut.NextRandomForm()).ToArray();

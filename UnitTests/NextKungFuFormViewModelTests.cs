@@ -15,7 +15,7 @@ namespace UnitTests
         public void CallingNextFormGivesRandomForm()
         {
             // Arrange
-            IKungfuRandomizer randomizer = new KungfuRandomizer(
+            IKungfuRandomizer randomizer = new KungFuRandomizer(
                 new KungFuForm[]
                 {
                     new("Sap Saam Cheung"), 
