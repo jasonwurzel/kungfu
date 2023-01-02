@@ -31,6 +31,5 @@ namespace UnitTests
             var text2 = sut.NextForm.Name;
             text1.Should().NotBe(text2);
         }
-
     }
 }
