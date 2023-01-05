@@ -6,21 +6,17 @@ namespace Services;
 
 public class LocalJsonRepository : IRepository
 {
-    private readonly string _basePath;
-    private readonly string _kungFuFileName;
     private readonly string _filePath;
 
     public LocalJsonRepository(string fileNameKungFuForms = "forms.json", string basePath = "")
     {
-        _kungFuFileName = fileNameKungFuForms;
-        _basePath = basePath;
-        _filePath = Path.Combine(_basePath, _kungFuFileName);
+        _filePath = Path.Combine(basePath, fileNameKungFuForms);
     }
 
-    public async Task<IEnumerable<KungFuForm>> GetKungFuForms()
+    public async Task<IEnumerable<KungFuForm>> GetKungFuFormsAsync()
     {
         // Path.Combine(_basePath, _kungFuFileName)
-        using StreamReader reader = new StreamReader(_filePath);
+        using var reader = new StreamReader(_filePath);
         var json = await reader.ReadToEndAsync();
         var kungFuFormsJson = new List<KungFuFormJson>();
         try
@@ -38,10 +34,10 @@ public class LocalJsonRepository : IRepository
         return kungFuFormsJson.Select(csv => new KungFuForm(csv.Name));
     }
 
-    public async Task PersistKungFuForms(IEnumerable<KungFuForm> forms)
+    public async Task PersistKungFuFormsAsync(IEnumerable<KungFuForm> forms)
     {
         await using var stream = File.Create(_filePath);
-        var kungFuFormJsons = forms.Select(form => new KungFuFormJson(form.Name, form.TrainedDates));
+        var kungFuFormJsons = forms.Select(form => new KungFuFormJson(form.Name, form.TrainedDates.ToArray()));
         await JsonSerializer.SerializeAsync(stream, kungFuFormJsons);
     }
 

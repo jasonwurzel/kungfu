@@ -12,8 +12,18 @@ public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
 
     public NextKungFuFormViewModel(IKungfuRandomizer randomizer)
     {
-        GetNextForm = ReactiveCommand.Create<Unit, string>(_ => Guid.NewGuid().ToString("N"));
-        GetNextForm.Do(nextFormText => NextForm = randomizer.NextRandomForm()).Subscribe();
+        GetNextForm = ReactiveCommand.Create<Unit, Unit>(_ =>
+        {
+            var nextForm = randomizer.NextRandomForm();
+            NextForm = nextForm;
+            return Unit.Default;
+        });
+
+        TrainToday = ReactiveCommand.Create<Unit, Unit>(form =>
+        {
+            NextForm.TrainedDates.Add(DateTimeOffset.Now);
+            return Unit.Default;
+        });
     }
 
     public KungFuForm NextForm
@@ -22,5 +32,7 @@ public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
         private set => this.RaiseAndSetIfChanged(ref _nextForm, value);
     }
 
-    public ReactiveCommand<Unit, string> GetNextForm { get; }
+    public ReactiveCommand<Unit, Unit> GetNextForm { get; }
+
+    public ReactiveCommand<Unit, Unit> TrainToday { get; }
 }

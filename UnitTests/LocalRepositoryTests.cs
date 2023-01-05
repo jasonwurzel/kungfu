@@ -13,7 +13,7 @@ namespace UnitTests
             var sut = new LocalCsvRepository("4KungFuForms.txt", "TestFiles");
 
             // Act
-            var kungFuFormsEnum = await sut.GetKungFuForms();
+            var kungFuFormsEnum = await sut.GetKungFuFormsAsync();
             var kungFuForms = kungFuFormsEnum.ToArray();
             // Assert
             kungFuForms.Should().HaveCount(4);

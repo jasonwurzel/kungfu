@@ -17,7 +17,7 @@ namespace AppInitWpf
         {
             // Singletons
             var localRepository = new LocalJsonRepository();
-            var kungFuForms = await localRepository.GetKungFuForms();
+            var kungFuForms = await localRepository.GetKungFuFormsAsync();
             var kungfuRandomizer = new KungFuRandomizer(kungFuForms.ToArray());
 
             IMainWindowViewModel root = new MainWindowViewModel(new NextKungFuFormViewModel(kungfuRandomizer));
