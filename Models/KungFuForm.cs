@@ -3,6 +3,7 @@
 public class KungFuForm
 {
     public static KungFuForm Empty => new(string.Empty);
+
     public string Name { get; }
 
     public DateTimeOffset[] TrainedDates { get; }

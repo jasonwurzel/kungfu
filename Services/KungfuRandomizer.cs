@@ -16,6 +16,7 @@ public class KungFuRandomizer : IKungfuRandomizer
     }
     public KungFuForm NextRandomForm()
     {
+        // of course, this algo can be Leetcode-style optimized. But we won't have more than some dozen forms, so it doesn't matter.
         int randomIndex = -1;
         if (_usedIndices.Count == _kungFuForms.Count) 
             _usedIndices.Clear();

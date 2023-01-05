@@ -4,5 +4,5 @@ namespace Interfaces;
 
 public interface IRepository
 {
-    IEnumerable<KungFuForm> GetKungFuForms();
+    Task<IEnumerable<KungFuForm>> GetKungFuForms();
 }

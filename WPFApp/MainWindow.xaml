@@ -20,6 +20,8 @@
                            FontFamily="{materialDesign:MaterialDesignFont}"
                            Background="{DynamicResource MaterialDesignPaper}">
     <Grid>
-        <viewsWpf:NextKungFuFormView x:Name="TheNextKungFuFormView" />
+        <viewsWpf:NextKungFuFormView x:Name="TheNextKungFuFormView" 
+                                     ViewModel="{Binding Mode=OneWay}" 
+                                     DataContext="{Binding NextKungFuFormViewModel, Mode=OneWay}" />
     </Grid>
 </reactiveUi:ReactiveWindow>

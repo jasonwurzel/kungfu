@@ -7,14 +7,14 @@ namespace UnitTests
     public class LocalRepositoryTests
     {
         [Fact]
-        public void TestGetKungFuForms()
+        public async Task TestGetKungFuForms()
         {
             // Arrange
-            var sut = new LocalRepository("4KungFuForms.txt", "TestFiles");
+            var sut = new LocalCsvRepository("4KungFuForms.txt", "TestFiles");
 
             // Act
-            var kungFuForms = sut.GetKungFuForms().ToArray();
-
+            var kungFuFormsEnum = await sut.GetKungFuForms();
+            var kungFuForms = kungFuFormsEnum.ToArray();
             // Assert
             kungFuForms.Should().HaveCount(4);
             kungFuForms.Should().AllSatisfy(form => form.Should().NotBeNull());

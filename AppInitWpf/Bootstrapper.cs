@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Interfaces;
 
 namespace AppInitWpf
 {
-    public class Bootstrapper
+    public static class Bootstrapper
     {
-        public static IMainWindowViewModel Run()
+        public static async Task<IMainWindowViewModel> Run()
         {
             ReactiveUiInit.Init();
-            var root = CompositionRoot.Create();
+            var root = await CompositionRoot.Create();
             return root;
         }
     }
