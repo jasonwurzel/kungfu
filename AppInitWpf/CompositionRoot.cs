@@ -16,7 +16,7 @@ namespace AppInitWpf
         public static async Task<IMainWindowViewModel> Create()
         {
             // Singletons
-            var localRepository = new LocalCsvRepository();
+            var localRepository = new LocalJsonRepository();
             var kungFuForms = await localRepository.GetKungFuForms();
             var kungfuRandomizer = new KungFuRandomizer(kungFuForms.ToArray());
 
