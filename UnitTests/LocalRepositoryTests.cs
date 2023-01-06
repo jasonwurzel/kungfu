@@ -10,11 +10,11 @@ namespace UnitTests
         public async Task TestGetKungFuForms()
         {
             // Arrange
-            var sut = new LocalCsvRepository("4KungFuForms.txt", "TestFiles");
+            var sut = new LocalJsonRepository("4KungFuForms.json", "TestFiles");
 
             // Act
-            var kungFuFormsEnum = await sut.GetKungFuFormsAsync();
-            var kungFuForms = kungFuFormsEnum.ToArray();
+            await sut.InitializeAsync();
+            var kungFuForms = sut.KungFuForms.ToArray();
             // Assert
             kungFuForms.Should().HaveCount(4);
             kungFuForms.Should().AllSatisfy(form => form.Should().NotBeNull());
