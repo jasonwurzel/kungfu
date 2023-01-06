@@ -4,7 +4,9 @@ namespace Interfaces;
 
 public interface IRepository
 {
-    Task<IEnumerable<KungFuForm>> GetKungFuFormsAsync();
+    Task InitializeAsync();
     
-    Task PersistKungFuFormsAsync(IEnumerable<KungFuForm> forms);
+    Task PersistKungFuFormsAsync();
+
+    IReadOnlyCollection<KungFuForm> KungFuForms { get; }
 }

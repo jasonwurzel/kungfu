@@ -1,5 +1,4 @@
 using System.Reactive;
-using System.Reactive.Linq;
 using Interfaces;
 using Models;
 using ReactiveUI;

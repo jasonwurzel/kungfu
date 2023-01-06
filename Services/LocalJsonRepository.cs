@@ -7,15 +7,26 @@ namespace Services;
 public class LocalJsonRepository : IRepository
 {
     private readonly string _filePath;
+    private List<KungFuForm> _kungFuForms = new();
 
     public LocalJsonRepository(string fileNameKungFuForms = "forms.json", string basePath = "")
     {
         _filePath = Path.Combine(basePath, fileNameKungFuForms);
     }
 
-    public async Task<IEnumerable<KungFuForm>> GetKungFuFormsAsync()
+    public IReadOnlyCollection<KungFuForm> KungFuForms
     {
-        // Path.Combine(_basePath, _kungFuFileName)
+        get
+        {
+            return _kungFuForms;
+        }
+    }
+
+    public async Task InitializeAsync()
+    {
+        // this is a conscious decision. We could of course build it in a way where it is ensured that the forms are loaded before they are requested. 
+        // (calling an unawaited init task in the ctor and waiting for it to finish before returning the kungfu forms, for example)
+        // but as I am the only developer in this project, let's not overengineer...
         using var reader = new StreamReader(_filePath);
         var json = await reader.ReadToEndAsync();
         var kungFuFormsJson = new List<KungFuFormJson>();
@@ -31,13 +42,13 @@ public class LocalJsonRepository : IRepository
 
         kungFuFormsJson ??= new List<KungFuFormJson>();
         
-        return kungFuFormsJson.Select(csv => new KungFuForm(csv.Name));
+        _kungFuForms = kungFuFormsJson.Select(k => new KungFuForm(k.Name, k.TrainedDates)).ToList();
     }
 
-    public async Task PersistKungFuFormsAsync(IEnumerable<KungFuForm> forms)
+    public async Task PersistKungFuFormsAsync()
     {
         await using var stream = File.Create(_filePath);
-        var kungFuFormJsons = forms.Select(form => new KungFuFormJson(form.Name, form.TrainedDates.ToArray()));
+        var kungFuFormJsons = _kungFuForms.Select(form => new KungFuFormJson(form.Name, form.TrainedDates.ToArray()));
         await JsonSerializer.SerializeAsync(stream, kungFuFormJsons);
     }
 
