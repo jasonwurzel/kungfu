@@ -9,7 +9,7 @@ public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
 {
     private KungFuForm _nextForm = KungFuForm.Empty;
 
-    public NextKungFuFormViewModel(IKungfuRandomizer randomizer)
+    public NextKungFuFormViewModel(IKungfuRandomizer randomizer, IKungFuFormPersister persister)
     {
         GetNextForm = ReactiveCommand.Create<Unit, Unit>(_ =>
         {
@@ -18,9 +18,10 @@ public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
             return Unit.Default;
         });
 
-        TrainToday = ReactiveCommand.Create<Unit, Unit>(form =>
+        TrainToday = ReactiveCommand.CreateFromTask<Unit, Unit>(async form =>
         {
             NextForm.TrainedDates.Add(DateTimeOffset.Now);
+            await persister.PersistKungFuFormsAsync();
             return Unit.Default;
         });
     }

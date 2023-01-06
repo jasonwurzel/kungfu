@@ -22,7 +22,8 @@ namespace UnitTests
                     new ("Tang Lung Cheung"),
                     new ("Siu Lum Guan")
                 });
-            var sut = new NextKungFuFormViewModel(randomizer);
+            IKungFuFormPersister dummyPersister = new DummyPersister();
+            var sut = new NextKungFuFormViewModel(randomizer, dummyPersister);
 
             // Act && Assert
             sut.GetNextForm.Execute(Unit.Default).Subscribe();
@@ -30,6 +31,14 @@ namespace UnitTests
             sut.GetNextForm.Execute(Unit.Default).Subscribe();
             var text2 = sut.NextForm.Name;
             text1.Should().NotBe(text2);
+        }
+    }
+
+    public class DummyPersister : IKungFuFormPersister
+    {
+        public Task PersistKungFuFormsAsync()
+        {
+            return Task.CompletedTask;
         }
     }
 }

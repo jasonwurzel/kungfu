@@ -2,11 +2,14 @@
 
 namespace Interfaces;
 
-public interface IRepository
+public interface IRepository : IKungFuFormPersister
 {
     Task InitializeAsync();
     
-    Task PersistKungFuFormsAsync();
-
     IReadOnlyCollection<KungFuForm> KungFuForms { get; }
+}
+
+public interface IKungFuFormPersister
+{
+    Task PersistKungFuFormsAsync();
 }
