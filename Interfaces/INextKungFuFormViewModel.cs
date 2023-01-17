@@ -8,7 +8,7 @@ public interface INextKungFuFormViewModel
 {
     KungFuForm NextForm { get; }
 
-    public ReactiveCommand<Unit, Unit> GetNextForm { get; }
+    ReactiveCommand<Unit, Unit> GetNextForm { get; }
 
-    public ReactiveCommand<Unit, Unit> TrainToday { get; }
+    ReactiveCommand<Unit, Unit> TrainToday { get; }
 }
