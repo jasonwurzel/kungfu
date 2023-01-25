@@ -18,7 +18,8 @@
                            TextElement.FontWeight="Medium"
                            TextElement.FontSize="14"
                            FontFamily="{materialDesign:MaterialDesignFont}"
-                           Background="{DynamicResource MaterialDesignPaper}">
+                           Background="{DynamicResource MaterialDesignPaper}"
+                           WindowState="Maximized">
     <Grid>
         <viewsWpf:NextKungFuFormView x:Name="TheNextKungFuFormView" 
                                      ViewModel="{Binding Mode=OneWay}" 
