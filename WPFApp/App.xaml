@@ -23,58 +23,10 @@
                   Background="{TemplateBinding Background}"
                   BorderBrush="{TemplateBinding BorderBrush}"
                   BorderThickness="{TemplateBinding BorderThickness}"
-                  ClipToBounds="{TemplateBinding ClipToBounds}">
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup Name="CommonStates">
-                                        <VisualStateGroup.Transitions>
-                                            <VisualTransition GeneratedDuration="0:0:0.3" To="Normal">
-                                                <VisualTransition.GeneratedEasingFunction>
-                                                    <CircleEase EasingMode="EaseOut" />
-                                                </VisualTransition.GeneratedEasingFunction>
-                                            </VisualTransition>
-                                        </VisualStateGroup.Transitions>
-                                        <VisualState Name="Normal" />
-                                        <VisualState Name="MouseOver">
-                                            <!--<Storyboard>
-                                                <DoubleAnimation Storyboard.TargetName="MouseOverBorder"
-                                     Storyboard.TargetProperty="Opacity"
-                                     To="0.1"
-                                     Duration="0" />
-                                            </Storyboard>-->
-                                        </VisualState>
-                                        <VisualState Name="Disabled" />
-                                    </VisualStateGroup>
-                                    <VisualStateGroup Name="SelectionStates">
-                                        <VisualStateGroup.Transitions>
-                                            <VisualTransition GeneratedDuration="0:0:0.6" />
-                                        </VisualStateGroup.Transitions>
-                                        <VisualState Name="Selected">
-                                            <!--<Storyboard>
-                                                <DoubleAnimation Storyboard.TargetName="SelectedBorder"
-                                     Storyboard.TargetProperty="Opacity"
-                                     To="0.18"
-                                     Duration="0" />
-                                            </Storyboard>-->
-                                        </VisualState>
-                                        <VisualState Name="Unselected" />
-                                        <VisualState Name="SelectedUnfocused">
-                                            <!--<Storyboard>
-                                                <DoubleAnimation Storyboard.TargetName="SelectedBorder"
-                                     Storyboard.TargetProperty="Opacity"
-                                     To="0.09"
-                                     Duration="0" />
-                                            </Storyboard>-->
-                                        </VisualState>
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <Border Grid.Row="0" Background="Transparent" Opacity="1" Height="20" CornerRadius="0 0 0 10"/>
-                                    <ContentControl Grid.Row="1" x:Name="Ripple"
+                  ClipToBounds="{TemplateBinding ClipToBounds}"
+                  CornerRadius="0 12 12 0">
+                                <Border CornerRadius="0 8 8 0" ClipToBounds="True">
+                                    <ContentControl x:Name="Ripple"
                                                            Padding="{TemplateBinding Padding}"
                                                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -82,9 +34,9 @@
                                                            ContentTemplate="{TemplateBinding ContentTemplate}"
                                                            ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                                            Focusable="False"
-                                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                    <Border Grid.Row="2" Background="Transparent" Height="20" CornerRadius="10 0 0 0"/>
-                                </Grid>
+                                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                    </ContentControl>
+                                </Border>
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsEnabled" Value="False">
