@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.Reactive;
 using Interfaces;
 using Models;
@@ -7,10 +8,11 @@ namespace ViewModels;
 
 public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
 {
-    private KungFuForm _nextForm = KungFuForm.Empty;
+    private KungFuForm _nextForm = null!;
 
-    public NextKungFuFormViewModel(IKungfuRandomizer randomizer, IKungFuFormPersister persister)
+    public NextKungFuFormViewModel(IKungfuRandomizer randomizer, IKungFuFormPersister persister, IReadOnlyCollection<KungFuForm> kungFuForms)
     {
+        KungFuForms = new ObservableCollection<KungFuForm>(kungFuForms);
         GetNextForm = ReactiveCommand.Create<Unit, Unit>(_ =>
         {
             var nextForm = randomizer.NextRandomForm();
@@ -29,10 +31,12 @@ public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
     public KungFuForm NextForm
     {
         get => _nextForm;
-        private set => this.RaiseAndSetIfChanged(ref _nextForm, value);
+        set => this.RaiseAndSetIfChanged(ref _nextForm, value);
     }
 
     public ReactiveCommand<Unit, Unit> GetNextForm { get; }
 
     public ReactiveCommand<Unit, Unit> TrainToday { get; }
+
+    public ObservableCollection<KungFuForm> KungFuForms { get; }
 }

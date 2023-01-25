@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.Reactive;
 using Models;
 using ReactiveUI;
@@ -11,4 +12,6 @@ public interface INextKungFuFormViewModel
     ReactiveCommand<Unit, Unit> GetNextForm { get; }
 
     ReactiveCommand<Unit, Unit> TrainToday { get; }
+
+    ObservableCollection<KungFuForm> KungFuForms { get; }
 }

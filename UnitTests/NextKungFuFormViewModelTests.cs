@@ -15,15 +15,16 @@ namespace UnitTests
         public void CallingNextFormGivesRandomForm()
         {
             // Arrange
+            var kungFuForms = new KungFuForm[]
+            {
+                new("Sap Saam Cheung"), 
+                new ("Tang Lung Cheung"),
+                new ("Siu Lum Guan")
+            };
             IKungfuRandomizer randomizer = new KungFuRandomizer(
-                new KungFuForm[]
-                {
-                    new("Sap Saam Cheung"), 
-                    new ("Tang Lung Cheung"),
-                    new ("Siu Lum Guan")
-                });
+                kungFuForms);
             IKungFuFormPersister dummyPersister = new DummyPersister();
-            var sut = new NextKungFuFormViewModel(randomizer, dummyPersister);
+            var sut = new NextKungFuFormViewModel(randomizer, dummyPersister, kungFuForms);
 
             // Act && Assert
             sut.GetNextForm.Execute(Unit.Default).Subscribe();
