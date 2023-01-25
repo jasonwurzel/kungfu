@@ -53,11 +53,11 @@
         <StackPanel Grid.Row="1" Grid.Column="0" 
                     Margin="32"
                     Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-            <Button  Content="Next" Margin="8 0 8 0"
-                    HorizontalAlignment="Center" Width="120" Height="40"
+            <Button Content="{x:Static local:Strings.NextButtonText}" Margin="8 0 8 0"
+                    HorizontalAlignment="Center" Height="40"
                     Command="{Binding GetNextForm}"/>
-            <Button Content="Train Today" Margin="8 0 8 0"
-                    HorizontalAlignment="Center" Width="120" Height="40"
+            <Button Content="{x:Static local:Strings.TrainTodayButtonText}" Margin="8 0 8 0"
+                    HorizontalAlignment="Center" Height="40"
                     Command="{Binding TrainToday}"/>
         </StackPanel>
         <ListBox Grid.Row="0" Grid.Column="1"  
@@ -71,6 +71,7 @@
                 <Style TargetType="ListBoxItem" BasedOn="{StaticResource MyMaterialDesignListBoxItem}">
                     <Setter Property="VerticalContentAlignment" Value="Center"/>
                     <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="0 0 32 0"></Setter>
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True" >
                             <Setter Property="Background" Value="Green" />

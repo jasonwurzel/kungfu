@@ -20,14 +20,14 @@ public partial class NextKungFuFormView
                 if (form == null)
                     TheDaysTrainedTextBlock.Text = String.Empty;
                 else
-                    TheDaysTrainedTextBlock.Text = $"Trained on {form.TrainedDates.Count} days";
+                    TheDaysTrainedTextBlock.Text = string.Format(Strings.NextKungFuFormView_NextKungFuFormView_DaysTrained, form.TrainedDates.Count);
                 string lastDateString;
                 if (form == null || !form.TrainedDates.Any())
                     lastDateString = String.Empty;
                 else 
                 {
                     var lastDate = form.TrainedDates.LastOrDefault();
-                    lastDateString = lastDate == default ? String.Empty : $"Last trained on {lastDate.ToString("D")}";
+                    lastDateString = lastDate == default ? String.Empty : string.Format(Strings.NextKungFuFormView_NextKungFuFormView_LastTrainedOn, lastDate.ToString("D"));
                 }
 
                 TheLastTrainedTextBlock.Text = lastDateString;
