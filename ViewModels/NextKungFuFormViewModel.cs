@@ -6,7 +6,7 @@ using ReactiveUI;
 
 namespace ViewModels;
 
-public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
+public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel, IActivatableViewModel
 {
     private KungFuForm _nextForm = null!;
 
@@ -39,4 +39,5 @@ public class NextKungFuFormViewModel : ReactiveObject, INextKungFuFormViewModel
     public ReactiveCommand<Unit, Unit> TrainToday { get; }
 
     public ObservableCollection<KungFuForm> KungFuForms { get; }
+    public ViewModelActivator Activator { get; } = new();
 }

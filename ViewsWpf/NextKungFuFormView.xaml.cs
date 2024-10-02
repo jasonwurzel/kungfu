@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows.Controls;
 using Models;
@@ -33,6 +34,8 @@ public partial class NextKungFuFormView
                 TheLastTrainedTextBlock.Text = lastDateString;
             })
             .Subscribe();
+
+        this.WhenActivated((Action<CompositeDisposable>)(_ => ViewModel.GetNextForm.Execute().Subscribe()));
     }
 
     private void TheFormsListBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
