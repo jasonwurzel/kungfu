@@ -21,7 +21,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="480"/>
         </Grid.ColumnDefinitions>
-        <Border Background="Green" CornerRadius="16" Margin="16 16 0 16">
+        <Border Background="Green" CornerRadius="16" Margin="16">
             <Grid >
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -62,7 +62,7 @@
         </StackPanel>
         <ListBox Grid.Row="0" Grid.Column="1"  
                  x:Name="TheFormsListBox" 
-                 Margin="0 32"
+                 Margin="32"
                  ItemsSource="{Binding KungFuForms}"
                  SelectedItem="{Binding NextForm}"
                  VerticalContentAlignment="Center"
