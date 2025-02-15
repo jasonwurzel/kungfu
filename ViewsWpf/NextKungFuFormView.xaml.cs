@@ -14,26 +14,24 @@ public partial class NextKungFuFormView
         InitializeComponent();
 
         this.WhenAnyValue(x => x.ViewModel).BindTo(this, x => x.DataContext);
-        this.WhenAnyValue(v => v.ViewModel.NextForm)
+        this.WhenAnyValue(v => v.ViewModel.NextForm, v => v.ViewModel.NextForm.TrainedDates.Count)
+            .Select(tuple => tuple.Item1)
             .Do(form =>
             {
-                if (form == null)
-                    TheDaysTrainedTextBlock.Text = String.Empty;
-                else
-                    TheDaysTrainedTextBlock.Text = string.Format(Strings.NextKungFuFormView_NextKungFuFormView_DaysTrained, form.TrainedDates.Count);
+                TheDaysTrainedTextBlock.Text = string.Format(Strings.NextKungFuFormView_NextKungFuFormView_DaysTrained, form.TrainedDates.Count);
                 string lastDateString;
-                if (form == null || !form.TrainedDates.Any())
-                    lastDateString = String.Empty;
-                else 
+                if (!form.TrainedDates.Any())
+                    lastDateString = string.Empty;
+                else
                 {
                     var lastDate = form.TrainedDates.LastOrDefault();
-                    lastDateString = lastDate == default ? String.Empty : string.Format(Strings.NextKungFuFormView_NextKungFuFormView_LastTrainedOn, lastDate.ToString("D"));
+                    lastDateString = lastDate == default ? string.Empty : string.Format(Strings.NextKungFuFormView_NextKungFuFormView_LastTrainedOn, lastDate.ToString("D"));
                 }
 
                 TheLastTrainedTextBlock.Text = lastDateString;
             })
             .Subscribe();
-
+        
         this.WhenActivated((Action<CompositeDisposable>)(_ => ViewModel.GetNextForm.Execute().Subscribe()));
     }
 
