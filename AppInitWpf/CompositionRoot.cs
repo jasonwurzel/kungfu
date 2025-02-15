@@ -20,7 +20,13 @@ namespace AppInitWpf
             await localRepository.InitializeAsync();
             var kungfuRandomizer = new KungFuRandomizer(localRepository.KungFuForms);
 
-            IMainWindowViewModel root = new MainWindowViewModel(new NextKungFuFormViewModel(kungfuRandomizer, localRepository, localRepository.KungFuForms));
+            IMainWindowViewModel root = new MainWindowViewModel(
+                new NextKungFuFormViewModel(
+                    kungfuRandomizer, 
+                    localRepository, 
+                    localRepository.KungFuForms
+                    )
+                );
 
             return root;
         }
