@@ -100,7 +100,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             TextAlignment="Center"
-                            Text="{Binding CountTrained}" />
+                            Text="{Binding TrainedDates.Count}" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
