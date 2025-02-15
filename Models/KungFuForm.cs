@@ -7,6 +7,8 @@ public class KungFuForm
     public string Name { get; }
 
     public List<DateTimeOffset> TrainedDates { get; }
+    
+    public int CountTrained => TrainedDates.Count;
 
     public KungFuForm(string name, DateTimeOffset[] trainedDates)
     {
